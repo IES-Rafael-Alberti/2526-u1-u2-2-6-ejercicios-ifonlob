@@ -9,7 +9,6 @@ Autor: Eduardo Fdez
 Fecha: 2025-10-25
 """
 
-
 def contar_digitos_pares_impares(numero: int) -> tuple[int, int]:
     """
     Cuenta la cantidad de dígitos pares e impares en un número.
@@ -28,7 +27,23 @@ def contar_digitos_pares_impares(numero: int) -> tuple[int, int]:
         - Si el número es 0, devolver (1, 0)
     """
     # TODO: Implementar la función
-    return (0, 0)
+    cantidad_pares = 0
+    cantidad_impares = 0
+    if numero < 0: # Transforma el número negativo en su valor absoluto
+        numero = numero * -1
+    elif numero == 0:
+        return (1,cantidad_impares)
+    numero = str(numero)
+    i = 0
+    for i in range(0,len(numero)):
+        if int(numero[i]) % 2 == 0 or int(numero[i]) == 0:
+            cantidad_pares += 1
+        else: # Número impar
+            cantidad_impares += 1
+    return (cantidad_pares,cantidad_impares)
+        
+        
+        
 
 
 def extraer_digitos_pares(numero: int) -> str:
