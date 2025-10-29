@@ -34,9 +34,21 @@ def es_bisiesto(anio: int) -> tuple[bool, int]:
         - 1582 es el año de adopción del calendario gregoriano
     """
     # TODO: Implementar la función
-    return (False, 0)
-
-
+    es_bisiesto = False
+    if anio < 1582 or anio > 3000:
+        return (False,0)
+    if anio % 400 == 0:
+        es_bisiesto = True
+        return (es_bisiesto,1)
+    else: # Divisible por 100 pero no por 400.
+        if anio % 100 == 0:
+            return(es_bisiesto,2)
+    if anio % 4 == 0:
+        if not anio % 100 == 0:
+            es_bisiesto = True
+            return(es_bisiesto,3)
+    else: # No divisible por 4
+        return(es_bisiesto,4)
 def solicitar_anio() -> int:
     """
     Solicita al usuario un año y valida el rango.
